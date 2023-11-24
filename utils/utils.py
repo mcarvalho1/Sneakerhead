@@ -1,6 +1,13 @@
 import random
 
+def escape_markdown_special_characters(text):
+    special_characters = ['-', '.', '*', '_', '`', '[', ']', '(', ')', '{', '}', '#', '+', '!', '|']
+    for char in special_characters:
+        text = text.replace(char, fr'\{char}')
+    return text
+
 def format_friendly_message(data):
+
     titles = [
         "🚨 Super Promo: Baixou mais!",
         "🌟 Oferta Incrível: Não perca!",
@@ -37,12 +44,6 @@ def format_friendly_message(data):
         f"{random_brands}"
     )
     return message
-
-def escape_markdown_special_characters(text):
-    special_characters = ['-', '.', '*', '_', '`', '[', ']', '(', ')', '{', '}', '#', '+', '!', '|']
-    for char in special_characters:
-        text = text.replace(char, fr'\{char}')
-    return text
 
 def format_news_message(data):
     news_title = escape_markdown_special_characters(data['news_title'])

@@ -37,7 +37,7 @@ async def send_product(update, context, text, caption):
 
             await context.bot.send_photo(chat_id=CHANNEL_CHAT_ID, photo=photo.file_id, caption=message_text)
         else:
-            await context.bot.send_message(chat_id=CHANNEL_CHAT_ID, text=friendly_message, parse_mode='MarkdownV2')
+            await context.bot.send_message(chat_id=CHANNEL_CHAT_ID, text=friendly_message)
 
     except Exception as e:
         print("Error:", str(e))
